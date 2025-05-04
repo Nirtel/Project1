@@ -1,0 +1,119 @@
+// Variabler
+$primary-font: 'Arial', sans-serif;
+$secondary-font: 'Helvetica', sans-serif;
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$background-color: #f4f4f4;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$white-color: #fff;
+$heading-color: #333;
+$text-color: #666;
+
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($x: 0, $y: 4px, $blur: 8px, $color: rgba(0, 0, 0, 0.1)) {
+  -webkit-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+// Global styling
+body {
+  font-family: $primary-font;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+  color: $text-color;
+}
+
+// Header
+header {
+  background-color: $primary-color;
+  color: $white-color;
+  padding: 20px;
+  text-align: center;
+  @include box-shadow(0, 2px, 5px, $shadow-color);
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+}
+
+// Container for content
+.container {
+  width: 80%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: $white-color;
+  @include box-shadow(0, 4px, 10px, $shadow-color);
+  @include border-radius(8px);
+
+  h2 {
+    color: $heading-color;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .intro {
+    font-style: italic;
+    color: $secondary-color;
+    font-size: 1.2em;
+  }
+
+  .post {
+    margin-bottom: 30px;
+
+    p {
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  background-color: $primary-color;
+  color: $white-color;
+  text-align: center;
+  padding: 10px 0;
+
+  p {
+    font-size: 1em;
+    margin: 0;
+  }
+}
+
+// Responsivitet med media queries
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  .intro {
+    font-size: 1em;
+  }
+
+  .post p {
+    font-size: 1em;
+  }
+}
